@@ -1,0 +1,6 @@
+#hero{
+    height: 300px;
+}
+#hero:before{
+    height: 300px;
+}
