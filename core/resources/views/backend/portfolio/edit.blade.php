@@ -2,7 +2,7 @@
 
 @section('title', 'Update Page')
 @section('title_button')
-    <a href="{{ route('page-builder.index') }}" class="btn bg-gradient-primary">
+    <a href="{{ route('technology.index') }}" class="btn bg-gradient-primary">
         <i class="fas fa-list"></i>
         View All
     </a>
@@ -12,18 +12,18 @@
     <!-- card -->
     <div class="card">
         <!-- form start -->
-        {!! Form::open(['method' => 'put', 'route' => ['page-builder.update', $data->id], 'id' => 'create-blog-form']) !!}
+        {!! Form::open(['method' => 'put', 'route' => ['technology.update', $data->id], 'id' => 'create-blog-form', 'files'=>true]) !!}
         <div class="card-body">
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
-                        <label for="title"> Page Title <span class="text-danger">*</span> : </label>
+                        <label for="title"> Title <span class="text-danger">*</span> : </label>
                         <input type="text" class="form-control" placeholder="Enter title" name="title"
                             value="{{ $data->title }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="slug"> Page Link <span class="text-danger">*</span> : </label>
-                        <input type="text" class="form-control" placeholder="Page Link" name="slug"
+                        <label for="slug"> Slug <span class="text-danger">*</span> : </label>
+                        <input type="text" class="form-control" placeholder="Link" name="slug"
                             value="{{ $data->slug }}" required>
                     </div>
                     <div class="form-group">
@@ -31,8 +31,8 @@
                             Long Description
                             <span class="text-danger">*</span> :
                         </label>
-                        <textarea class="form-control summerNote" placeholder="Enter long description" name="content" cols="30"
-                            rows="10" id="content">{{ $data->content }}</textarea>
+                        <textarea class="form-control summerNote" placeholder="Enter long description" name="description" cols="30"
+                            rows="10" id="content">{{ $data->description }}</textarea>
                         <p class="text-danger d-none" id="description-error">
                             * description field is required
                         </p>
@@ -43,11 +43,29 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="meta_description">
-                            Meta Description
+                            Short Description
                             <span class="text-danger">*</span> :
                         </label>
                         <textarea class="form-control" placeholder="Enter short description for meta description" name="meta_description"
                             required cols="30" rows="4">{{ $data->meta_description }}</textarea>
+                    </div>
+                    <div class="form-group {{ $errors->has('icon') ? 'has-error' : '' }}">
+                        <label for="icon"> Icon <span class="text-danger">*</span> : </label>
+                        <div class="col-md-12">
+                            <label class="post_upload" for="file" style="height: 100px;width: 100px;">
+                            @if($data->icon!=null)
+                            <img id="image_load" src='{{imageRecover($data->icon)}}' class="img-responsive">
+                            @else
+                            <img id="image_load" src="{{asset('assets/images/photo.png')}}">
+                            @endif
+                            </label>
+                            {{Form::file('icon',array('id'=>'file','style'=>'display:none','onchange'=>"photoLoad(this,'image_load')"))}}
+                             @if ($errors->has('icon'))
+                                    <span class="help-block" style="display:block">
+                                        <strong>{{ $errors->first('icon') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="main-features">

@@ -85,6 +85,57 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
+                    <i class="fab fa-blogger-b nav-icon"></i>
+                    <p>
+                        Portfolio
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chevron-circle-right nav-icon"></i>
+                            <p>
+                                <span class="text-lightblue">Project</span>
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('backend.admin.blogs.create') }}"
+                                    class="nav-link {{ menuActive('backend.admin.blogs.create') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add New</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.admin.blogs') }}"
+                                    class="nav-link {{ menuActive(['backend.admin.blogs','backend.admin.blogs.edit']) ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Blog List</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('portfolio.categories.index') }}"
+                            class="nav-link {{ menuActive('portfolio.categories.*') ? 'active' : '' }}">
+                            <i class="fas fa-chevron-circle-right nav-icon"></i>
+                            <p>Category</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('technology.index') }}"
+                    class="nav-link {{ menuActive('technology.*') ? 'active' : '' }}">
+                    <i class="fas fa-file nav-icon"></i>
+                    <p>Technology</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
                     <i class="fas fa-credit-card nav-icon"></i>
                     <p>
                         Financial
