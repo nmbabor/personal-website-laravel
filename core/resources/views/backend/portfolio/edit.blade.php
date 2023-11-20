@@ -1,8 +1,8 @@
 @extends('backend.master')
 
-@section('title', 'Update Page')
+@section('title', 'Update portfolio')
 @section('title_button')
-    <a href="{{ route('technology.index') }}" class="btn bg-gradient-primary">
+    <a href="{{ route('portfolio.projects.index') }}" class="btn bg-gradient-primary">
         <i class="fas fa-list"></i>
         View All
     </a>
@@ -12,7 +12,7 @@
     <!-- card -->
     <div class="card">
         <!-- form start -->
-        {!! Form::open(['method' => 'put', 'route' => ['technology.update', $data->id], 'id' => 'create-blog-form', 'files'=>true]) !!}
+        {!! Form::open(['method' => 'put', 'route' => ['portfolio.projects.update', $data->id], 'id' => 'create-blog-form', 'files'=>true]) !!}
         <div class="card-body">
             <div class="row">
                 <div class="col-md-9">
@@ -37,35 +37,20 @@
                             * description field is required
                         </p>
                     </div>
-
-
-                </div>
-                <div class="col-md-3">
                     <div class="form-group">
                         <label for="meta_description">
-                            Short Description
+                            Used Technologies
+                            <span class="text-danger">*</span> :
+                        </label>
+                        {{Form::select('technologies[]',$technologies,$data->getTechnologiesId()??'',['class'=>'form-control select2','multiple'])}}
+                    </div>
+                    <div class="form-group">
+                        <label for="meta_description">
+                            Meta Description
                             <span class="text-danger">*</span> :
                         </label>
                         <textarea class="form-control" placeholder="Enter short description for meta description" name="meta_description"
                             required cols="30" rows="4">{{ $data->meta_description }}</textarea>
-                    </div>
-                    <div class="form-group {{ $errors->has('icon') ? 'has-error' : '' }}">
-                        <label for="icon"> Icon <span class="text-danger">*</span> : </label>
-                        <div class="col-md-12">
-                            <label class="post_upload" for="file" style="height: 100px;width: 100px;">
-                            @if($data->icon!=null)
-                            <img id="image_load" src='{{imageRecover($data->icon)}}' class="img-responsive">
-                            @else
-                            <img id="image_load" src="{{asset('assets/images/photo.png')}}">
-                            @endif
-                            </label>
-                            {{Form::file('icon',array('id'=>'file','style'=>'display:none','onchange'=>"photoLoad(this,'image_load')"))}}
-                             @if ($errors->has('icon'))
-                                    <span class="help-block" style="display:block">
-                                        <strong>{{ $errors->first('icon') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
                     </div>
                     <div class="form-group">
                         <label for="main-features">
@@ -74,6 +59,68 @@
                         <textarea class="form-control" placeholder="SPA,Hosting, ..." name="meta_tags">{{ $data->meta_tags }}</textarea>
                         <small class="form-text text-muted">Enter values separated by commas.</small>
                     </div>
+
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="portfolio_category_id">
+                            Category
+                            <span class="text-danger">*</span> :
+                        </label>
+                        {{Form::select('portfolio_category_id',$categories,$data->portfolio_category_id,['class'=>'form-control','placeholder'=>'Select Category', 'required'])}}
+                    </div>
+                    <div class="form-group">
+                        <label for="client_name">
+                            Client Name :
+                        </label>
+                        <input type="text" class="form-control" name="client_name" value="{{ $data->client_name }}" placeholder="nTech Bangla" />
+                    </div>
+                    <div class="form-group {{ $errors->has('thumbnail') ? 'has-error' : '' }}">
+                        <label for="thumbnail"> Thumbnail <span class="text-danger">*</span> : </label>
+                        <div class="col-md-12">
+                            <label class="post_upload" for="file" >
+                            @if($data->thumbnail!=null)
+                            <img id="image_load" src='{{imageRecover($data->thumbnail)}}' class="img-responsive">
+                            @else
+                            <img id="image_load" src="{{asset('assets/images/photo.png')}}">
+                            @endif
+                            </label>
+                            {{Form::file('thumbnail',array('id'=>'file','style'=>'display:none','onchange'=>"photoLoad(this,'image_load')"))}}
+                             @if ($errors->has('thumbnail'))
+                                    <span class="help-block" style="display:block">
+                                        <strong>{{ $errors->first('thumbnail') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="project_date">
+                            Project date :
+                        </label>
+                        <input type="text" class="form-control" name="project_date" value="{{ $data->project_date }}" placeholder="March, 2024 - December, 2024" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="live_url">
+                            Live URL :
+                        </label>
+                        <input type="text" class="form-control" name="live_url" value="{{ $data->live_url }}" placeholder="www.example.com" />
+                    </div>
+                    <div class="form-group">
+                        <label for="git_url">
+                            Github URL :
+                        </label>
+                        <input type="text" class="form-control" name="git_url" value="{{ $data->git_url }}" placeholder="www.github.com/nmbabor/nmbabor" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="yt_video_id">
+                            YT Video ID :
+                        </label>
+                        <input type="text" class="form-control" name="yt_video_id" value="{{ $data->yt_video_id }}" placeholder="4HSaYzMCA00" />
+                    </div>
+                    
                     <div class="form-group">
                         <div class="py-1 custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                             <input type="checkbox" class="custom-control-input" id="publish" name="status"

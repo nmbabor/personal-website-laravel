@@ -110,6 +110,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
      Route::prefix('portfolio')->as('portfolio.')->group(function () {
         // blog category
         Route::resource('categories','Backend\Portfolio\PortfolioCategoryController');
+        Route::resource('projects','Backend\Portfolio\PortfolioController');
      });
     // blogs
     Route::prefix('blogs')->group(function () {

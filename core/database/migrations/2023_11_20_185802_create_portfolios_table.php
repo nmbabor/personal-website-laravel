@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->string('slug')->unique();
             $table->string('git_url')->nullable();
             $table->string('live_url')->nullable();

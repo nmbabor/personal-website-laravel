@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PortfolioTechnology extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = ['technology_id','portfolio_id'];
+
+    public function portfolio()
+    {
+        return $this->belongsTo(Portfolio::class);
+    }
+    public function technology()
+    {
+        return $this->belongsTo(Technology::class);
+    }
 }

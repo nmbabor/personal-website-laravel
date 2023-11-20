@@ -103,17 +103,17 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('backend.admin.blogs.create') }}"
-                                    class="nav-link {{ menuActive('backend.admin.blogs.create') ? 'active' : '' }}">
+                                <a href="{{ route('portfolio.projects.create') }}"
+                                    class="nav-link {{ menuActive('portfolio.projects.create') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add New</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('backend.admin.blogs') }}"
-                                    class="nav-link {{ menuActive(['backend.admin.blogs','backend.admin.blogs.edit']) ? 'active' : '' }}">
+                                <a href="{{ route('portfolio.projects.index') }}"
+                                    class="nav-link {{ menuActive(['portfolio.projects.index','portfolio.projects.edit']) ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Blog List</p>
+                                    <p>List</p>
                                 </a>
                             </li>
                         </ul>

@@ -1,8 +1,8 @@
 @extends('backend.master')
 
-@section('title', 'Technologies')
+@section('title', 'Portfolio')
 @section('title_button')
-<a href="{{ route('technology.create') }}" class="btn bg-gradient-primary" >
+<a href="{{ route('portfolio.projects.create') }}" class="btn bg-gradient-primary" >
     <i class="fas fa-plus"></i>
     Add New
 </a>
@@ -40,7 +40,7 @@
                     [1, 'asc']
                 ],
                 ajax: {
-                    url: "{{ route('technology.index') }}"
+                    url: "{{ route('portfolio.projects.index') }}"
                 },
 
                 columns: [{
