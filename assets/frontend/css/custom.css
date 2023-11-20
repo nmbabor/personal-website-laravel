@@ -4,3 +4,51 @@
 #hero:before{
     height: 300px;
 }
+.portfolio-keyfeatures .icon{
+    height: 3rem;
+    width: 3rem;
+    margin: 0 auto;
+}
+.portfolio-keyfeatures .card{
+    height: 100%;
+}
+.portfolio-video{
+    position: relative;
+}
+.portfolio-title{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.video-overlay{
+    background: #8f8f8f7a;
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-overlay i{
+    font-size: 130px;
+    color: #ff0000;
+}
+.verticle-align-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.portfolio-technology .card{
+    height: 100%;
+}
+.portfolio-technology .card a{
+    color: #000;
+}
+.portfolio-technology .card a:hover{
+    color: #149ddd;
+}

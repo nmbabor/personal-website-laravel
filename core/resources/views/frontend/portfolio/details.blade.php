@@ -46,9 +46,9 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
+            <div class="portfolio-info mb-2 p-4">
               <h3>Project information</h3>
-              <ul>
+              <ul class="mb-0">
                 <li><strong>Name</strong>: This is an example of portfolio project name this is an example of portfolio project name</li>
                 <li><strong>Category</strong>: Web design</li>
                 <li><strong>Client</strong>: ASU Company</li>
@@ -56,29 +56,137 @@
                 <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h3> Descriptions</h3>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+            <div class="portfolio-video">
+              <img class="img-fluid" src="{{asset('assets/images/portfolio/video-thumbnails.png')}}">
+              <div class="video-overlay">
+                <i class="bx bxl-youtube"></i>
+              </div>
             </div>
+            
           </div>
 
         </div>
         <div class="row gy-4">
           <div class="col-md-12">
-            <h3>Key features</h3>
+            <div class="portfolio-description">
+              <h3 class="portfolio-title"> Descriptions</h3>
+              <p>
+                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              </p>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                </svg>
-                <i class="bx bxl-dribbble"></i>
+        </div>
+        <div class="row gy-4 portfolio-keyfeatures mt-3">
+          <div class="col-md-12">
+            <h3 class="portfolio-title">Key features</h3>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon mb-2">
+                  <img class="img-fluid" src="{{asset('assets/images/portfolio/classroom.png')}}" alt="Classroom">
+                </div>
+                <h5 class="card-title text-center fw-bold">Classroom</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon mb-2">
+                  <img class="img-fluid" src="{{asset('assets/images/portfolio/classroom.png')}}" alt="Classroom">
+                </div>
+                <h5 class="card-title text-center fw-bold">Classroom</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.  build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.  build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon mb-2">
+                  <img class="img-fluid" src="{{asset('assets/images/portfolio/classroom.png')}}" alt="Classroom">
+                </div>
+                <h5 class="card-title text-center fw-bold">Classroom</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon mb-2">
+                  <img class="img-fluid" src="{{asset('assets/images/portfolio/classroom.png')}}" alt="Classroom">
+                </div>
+                <h5 class="card-title text-center fw-bold">Classroom</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.  build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.  build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon mb-2">
+                  <img class="img-fluid" src="{{asset('assets/images/portfolio/classroom.png')}}" alt="Classroom">
+                </div>
+                <h5 class="card-title text-center fw-bold">Classroom</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row gy-4 portfolio-technology mt-4">
+          <div class="col-md-12">
+            <h3 class="portfolio-title">Technologies used</h3>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <a class="row g-0" href="#">
+                <div class="col-md-3 verticle-align-center">
+                  <img src="{{asset('assets/images/portfolio/vuejs.png')}}" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">VueJs</h5>
+                    <p class="card-text">Vue.js is a javascript framework developers mainly use to create interactive user interfaces.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <a class="row g-0" href="#">
+                <div class="col-md-3 verticle-align-center">
+                  <img src="{{asset('assets/images/portfolio/vuejs.png')}}" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Express Js</h5>
+                    <p class="card-text">Vue.js is a javascript framework developers mainly use to create interactive user interfaces.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <a class="row g-0" href="#">
+                <div class="col-md-3 verticle-align-center">
+                  <img src="{{asset('assets/images/portfolio/nuxtjs.png')}}" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">nuxt Js</h5>
+                    <p class="card-text">Vue.js is a javascript framework developers mainly use to create interactive user interfaces.</p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
