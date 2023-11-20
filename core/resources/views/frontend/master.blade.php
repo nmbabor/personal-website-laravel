@@ -145,6 +145,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
+    @stack('script')
 
 </body>
 

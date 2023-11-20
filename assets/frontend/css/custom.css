@@ -23,7 +23,7 @@
     border-bottom: 1px solid #eee;
 }
 .video-overlay{
-    background: #8f8f8f7a;
+    background: #8f8f8f4f;
     min-height: 200px;
     height: 100%;
     width: 100%;
@@ -37,6 +37,11 @@
 .video-overlay i{
     font-size: 130px;
     color: #ff0000;
+}
+.video-overlay img{
+    width: 150px;
+    opacity: .7;
+    border-radius: 50%;
 }
 .verticle-align-center{
     display: flex;

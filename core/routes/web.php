@@ -31,7 +31,7 @@ Route::get('/blogs','Frontend\HomeController@blogs')->name('frontend.blogs');
 Route::get('/blogs/{category}','Frontend\HomeController@blogCategory')->name('frontend.blogs.category');
 Route::get('/blog/{slug}','Frontend\HomeController@singleBlog')->name('frontend.blog.show');
 Route::get('/pages/{slug}','Frontend\HomeController@singlePage')->name('frontend.page');
-Route::get('/protfolio/{slug}','Frontend\HomeController@portfolio');
+Route::get('/portfolio/{slug}','Frontend\HomeController@portfolio');
 
 //authentication
 Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('login');
