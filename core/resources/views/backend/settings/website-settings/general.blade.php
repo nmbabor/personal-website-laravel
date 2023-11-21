@@ -365,6 +365,25 @@
                                             ( 50x50 px ) - Extensions: .png, .jpg, .jpeg, .gif, .svg
                                         </small>
                                     </div>
+                                    <div class="col-md-6 my-2">
+                                        <label for="thumbnail"> Skill section Photo : </label>
+                                        <div class="col-md-6">
+                                            <label class="post_upload" for="skill_photo">
+                                                @if (readconfig('skill_photo') != null)
+                                                    <img id="skill_image_load"
+                                                        src='{{ imageRecover(readconfig('skill_photo')) }}'
+                                                        class="img-responsive">
+                                                @else
+                                                    <img id="skill_image_load" src="{{ asset('assets/images/photo.png') }}">
+                                                @endif
+                                            </label>
+                                            {{ Form::file('skill_photo', ['id' => 'skill_photo', 'style' => 'display:none', 'onchange' => "photoLoad(this,'skill_image_load')"]) }}
+                                        </div>
+                                        <small>
+                                            <i class="far fa-question-circle"></i>
+                                            ( 300x300 px ) - Extensions: .png, .jpg, .jpeg, .gif, .svg
+                                        </small>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn bg-gradient-primary mb-2">
                                     <i class="fas fa-save"></i>

@@ -103,6 +103,11 @@ class WebsiteSettingController extends Controller
             $favicon_icon = uploadImage($request->file("favicon_icon"), "/assets/images/logo");
             writeConfig('favicon_icon', $favicon_icon);
         }
+        if ($request->hasFile("skill_photo")) {
+            secureUnlink(readConfig('skill_photo'));
+            $skill_photo = uploadImage($request->file("skill_photo"), "/assets/images/logo");
+            writeConfig('skill_photo', $skill_photo);
+        }
 
         return to_route('backend.admin.settings.website.general', ['active-tab' => 'style-settings'])
             ->with('success', 'Updated successfully');

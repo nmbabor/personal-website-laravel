@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Education;
+use App\Models\Experience;
 use App\Models\Page;
-use App\Models\PricingPlan;
+use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
+use App\Models\Technology;
 use App\Models\TextSlider;
 
 
@@ -14,9 +18,22 @@ class HomeController extends Controller
 {
     public function index(){
         $blogs = Blog::whereStatus(1)->latest()->take(3)->get();
-        $sliders = TextSlider::whereStatus(1)->latest()->get();
-        $plans = PricingPlan::whereStatus(1)->orderBy('serial_num','ASC')->get();
-        return view('frontend.index',compact('blogs','sliders','plans'));
+        $sliders = TextSlider::whereStatus(1)->latest()->pluck('title')->toArray();
+       $textSlider = implode(', ',$sliders);
+       // Skills text to array to chunk
+       $skills = readConfig('skills');
+       $skills = explode(', ', $skills);
+       $skills = array_chunk($skills,5);
+
+       $educations = Education::whereStatus(1)->latest()->get();
+       $experiences = Experience::whereStatus(1)->latest()->get();
+
+       $technology = Technology::whereStatus(1)->get();
+
+       $portfolioCategory = PortfolioCategory::whereStatus(1)->get();
+       $portfolio = Portfolio::whereStatus(1)->latest()->get();
+        
+        return view('frontend.index',compact('blogs','textSlider','skills','educations','experiences','technology','portfolioCategory','portfolio'));
     }
     public function blogs(){
         $blogs = Blog::whereStatus(1)->latest()->paginate(12);

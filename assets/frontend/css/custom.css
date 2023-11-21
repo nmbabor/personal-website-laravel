@@ -50,10 +50,15 @@
 }
 .portfolio-technology .card{
     height: 100%;
+    box-shadow: 1px 1px 5px 1px #eee;
+    border: none;
 }
 .portfolio-technology .card a{
     color: #000;
 }
-.portfolio-technology .card a:hover{
+.portfolio-technology .card a:hover .card-title{
     color: #149ddd;
+}
+.bg-brand{
+    background-color: #149ddd;
 }
