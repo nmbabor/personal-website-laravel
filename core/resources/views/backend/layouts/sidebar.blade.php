@@ -21,23 +21,6 @@
                     </p>
                 </a>
             </li>
-        
-            <li class="nav-item">
-                <a href="{{ route('user.pricing-plans') }}"
-                    class="nav-link {{ menuActive('user.pricing-plans') ? 'active' : '' }}">
-                    <i class="nav-icon fa fa-credit-card"></i>
-                    <p> Price </p>
-                </a>
-            </li>
-            @if(auth()->user()->type== 'User')
-            <li class="nav-item">
-                <a href="{{ route('user.transections') }}"
-                    class="nav-link {{ menuActive(['user.transections','user.transections.show']) ? 'active' : '' }}">
-                    <i class="nav-icon fa fa-bars"></i>
-                    <p> Transections </p>
-                </a>
-            </li>
-            @endif
             @if(auth()->user()->type== 'Admin')
             <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -85,7 +68,7 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="fab fa-blogger-b nav-icon"></i>
+                    <i class="fa fa-id-card nav-icon"></i>
                     <p>
                         Portfolio
                         <i class="fas fa-angle-left right"></i>
@@ -129,7 +112,7 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="fab fa-blogger-b nav-icon"></i>
+                    <i class="fa fa-graduation-cap nav-icon"></i>
                     <p>
                         Resume
                         <i class="fas fa-angle-left right"></i>
@@ -155,49 +138,25 @@
             <li class="nav-item">
                 <a href="{{ route('technology.index') }}"
                     class="nav-link {{ menuActive('technology.*') ? 'active' : '' }}">
-                    <i class="fas fa-file nav-icon"></i>
+                    <i class="fa fa-plug nav-icon"></i>
                     <p>Technology</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-credit-card nav-icon"></i>
-                    <p>
-                        Financial
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
+                <a href="{{ route('testimonials.index') }}"
+                    class="nav-link {{ menuActive('testimonials.*') ? 'active' : '' }}">
+                    <i class="fas fa-comments nav-icon"></i>
+                    <p>Testimonials</p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{ route('admin.transections') }}"
-                            class="nav-link {{ menuActive(['admin.transections','admin.transections.show']) ? 'active' : '' }}">
-                            <i class="fas fa-chevron-circle-right nav-icon"></i>
-                            <p>Transections</p>
-                        </a>
-                    </li>
-                     <li class="nav-item">
-                        <a href="{{ route('coupons.index') }}"
-                            class="nav-link {{ menuActive('coupons.*') ? 'active' : '' }}">
-                            <i class="fas fa-chevron-circle-right nav-icon"></i>
-                            <p>Discount Coupons</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('settings.payment-gateway') }}?tab=bank"
-                            class="nav-link {{ menuActive('settings.payment-gateway') ? 'active' : '' }}">
-                            <i class="fas fa-chevron-circle-right nav-icon"></i>
-                            <p>Payment Gateway</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('pricing-plan.index') }}"
-                            class="nav-link {{ menuActive('pricing-plan.*') ? 'active' : '' }}">
-                            <i class="fas fa-chevron-circle-right nav-icon"></i>
-                            <p>Pricing Plan</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('services.index') }}"
+                    class="nav-link {{ menuActive('services.*') ? 'active' : '' }}">
+                    <i class="fa fa-th-large nav-icon"></i>
+                    <p>Services</p>
+                </a>
+            </li>
+           
             <li class="nav-item">
                 <a href="{{ route('page-builder.index') }}"
                     class="nav-link {{ menuActive('page-builder.*') ? 'active' : '' }}">
