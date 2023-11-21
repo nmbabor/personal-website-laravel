@@ -109,6 +109,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::resource('experiences','Backend\ExperienceController');
     Route::resource('technology','Backend\TechnologyController');
     Route::resource('services','Backend\ServicesController');
+    Route::resource('testimonials','Backend\TestimonialController');
      // Portfolio
      Route::prefix('portfolio')->as('portfolio.')->group(function () {
         // Portfolio category
