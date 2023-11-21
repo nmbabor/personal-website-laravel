@@ -1,10 +1,13 @@
 @if (isset($errors) && $errors->any())
     <div style="position: fixed; top: 1rem; right: 1rem; z-index: 9999;"
         class="toast align-items-center bg-danger border-0 text-white" role="alert" aria-live="assertive"
-        data-delay="2000">
+        data-autohide="false">
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         <div class="toast-body">
-            <svg height="25" width="25" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                overflow="visible" enable-background="new 0 0 32 32">
+            <svg height="25" width="25" viewBox="0 0 32 32" xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg" overflow="visible" enable-background="new 0 0 32 32">
                 <circle cx="16" cy="16" r="16" fill="#ffffff" class="fill-d72828"></circle>
                 <path d="M14.5 25h3v-3h-3v3zm0-19v13h3V6h-3z" fill="#DC3545" class="fill-e6e6e6"></path>
             </svg>
@@ -36,7 +39,10 @@
 @if (session()->has('error'))
     <div style="position: fixed; top: 1rem; right: 1rem; z-index: 9999;"
         class="toast align-items-center bg-danger border-0 text-white" role="alert" aria-live="assertive"
-        aria-atomic="true" data-delay="2000">
+        aria-atomic="true" data-autohide="false">
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         <div class="toast-body">
             <svg height="25" width="25" viewBox="0 0 32 32" xml:space="preserve"
                 xmlns="http://www.w3.org/2000/svg" overflow="visible" enable-background="new 0 0 32 32">
@@ -48,10 +54,14 @@
     </div>
 @endif
 
+
 @if (session()->has('warning'))
     <div style="position: fixed; top: 1rem; right: 1rem; z-index: 9999;"
         class="toast align-items-center bg-warning border-0 text-white" role="alert" aria-live="assertive"
-        data-delay="2000">
+        data-autohide="false">
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         <div class="toast-body">
             <svg height="25" width="25" data-name="Layer 1" viewBox="0 0 64 64"
                 xmlns="http://www.w3.org/2000/svg">
@@ -84,6 +94,9 @@
                     toastInstance.hide();
                 });
             }
+            toast.addEventListener('click', function() {
+                    toastInstance.hide();
+                });
         }
     });
 </script>

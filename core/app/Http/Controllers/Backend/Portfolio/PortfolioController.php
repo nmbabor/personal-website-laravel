@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Portfolio;
 use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
+use App\Models\PortfolioImage;
 use App\Models\PortfolioTechnology;
 use App\Models\Technology;
 use Illuminate\Http\Request;
@@ -38,18 +39,26 @@ class PortfolioController extends Controller
                 ->addColumn(
                     'action',
                     '<div class="action-wrapper">
-                    <a class="btn btn-xs bg-gradient-success"
+                    <a class="btn btn-xs bg-gradient-success" title="Details Show"
                         href="{{ url(\'portfolio\', $slug) }}" target="_blank">
                         <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="btn btn-xs btn-primary" title="Images"
+                        href="{{ route(\'portfolio.projects.show\', $id) }}">
+                        <i class="fa fa-camera"></i>
+                    </a>
+                    <a class="btn btn-xs btn-success" title="Features"
+                        href="{{ route(\'portfolio.features.index\', $id) }}">
+                        <i class="fas fa-file"></i>
                     </a>
                     <a class="btn btn-xs bg-gradient-primary"
                         href="{{ route(\'portfolio.projects.edit\', $id) }}">
                         <i class="fas fa-edit"></i>
                     </a>
                     <a class="btn btn-danger btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete Category"
-                                        href="javascript:void(0)"
-                                        onclick=\'resourceDelete("{{ route(\'portfolio.projects.destroy\', $id) }}")\'>
-                                        <span class="delete-icon">
+                        href="javascript:void(0)"
+                        onclick=\'resourceDelete("{{ route(\'portfolio.projects.destroy\', $id) }}")\'>
+                        <span class="delete-icon">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                     
@@ -113,7 +122,8 @@ class PortfolioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Portfolio::findOrFail($id);
+        return view('backend.portfolio.image', compact('data'));
     }
 
     /**
@@ -197,4 +207,54 @@ class PortfolioController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+    
+
+    // Portfolio Project Image store
+    public function imageStore(Request $request)
+    {
+        $request->validate([
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'portfolio_id' => 'required',
+        ]);
+        try {
+          
+            if ($request->hasFile("thumbnail")) {
+                $imagePath = uploadImage($request->file("thumbnail"), "/assets/images/portfolio/".$request->portfolio_id);
+            }
+            PortfolioImage::create([
+                'portfolio_id' => $request->portfolio_id,
+                'image_path' => $imagePath,
+                'status' => $request->status? 1 : 0
+            ]);
+            return back()->with('success', 'Data created successfully');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function imageStatusUpdate(Request $request)
+    {
+        try {
+            $data = PortfolioImage::findOrFail($request->id);
+            $data->update([
+                'status' => $request->status? 1 : 0
+            ]);
+            return back()->with('success', 'Status updated successfully');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+    
+    public function imageDelete($id)
+    {
+        try {
+            $data = PortfolioImage::findOrFail($id);
+            secureUnlink($data->image_path);
+            $data->delete();
+            return back()->with('success', 'Data deleted successfully');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
 }

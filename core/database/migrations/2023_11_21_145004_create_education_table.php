@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Portfolio;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portfolio_features', function (Blueprint $table) {
+        Schema::create('educations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Portfolio::class)->constrained();
-            $table->string('icon')->nullable();
-            $table->string('title');
-            $table->string('description');
-            $table->boolean('status')->default(1);
+            $table->string('qualification');
+            $table->string('institute');
+            $table->text('description')->nullable();
+            $table->string('passing_year')->nullable();
+            $table->string('result')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('portfolio_features');
+        Schema::dropIfExists('educations');
     }
 };

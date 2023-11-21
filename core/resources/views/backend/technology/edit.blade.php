@@ -1,6 +1,6 @@
 @extends('backend.master')
 
-@section('title', 'Update Page')
+@section('title', 'Update Technology')
 @section('title_button')
     <a href="{{ route('technology.index') }}" class="btn bg-gradient-primary">
         <i class="fas fa-list"></i>

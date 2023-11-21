@@ -45,7 +45,7 @@
   'about_us' => 'Atrip is the country\'s first and leading online travel aggregator. We dreamt of making travel easier for people of all ages. And that is what we have done since our inception.',
   'sub_title' => 'Google Backlink',
   'core_folder' => 1,
-  'short_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
+  'short_description' => 'I\'m NM Babor, a seasoned web application developer with 7 years of professional experience. I began my journey in web development during my 3rd year of Diploma in Engineering. Since joining a company as an intern in 2016, I have been actively involved in working on live projects, refining my skills alongside a talented team. Specializing as a full-stack developer, I have a comprehensive understanding of both front-end and back-end technologies. With expertise in PHP Laravel, MySQL, jQuery, Node.js, React.js, Vue.js, and Express.js, I have successfully delivered a diverse range of web applications.',
   'bank_name' => 'Islami Bank',
   'ac_name' => 'NM Babor',
   'ac_no' => '20212321341',
@@ -61,4 +61,6 @@
   'aamarpay_key' => 'dbb74894e82415a2f7ff0ec3a97e4183',
   'github_link' => 'https://github.com/nmbabor',
   'skype_link' => NULL,
+  'skills' => 'PHP, Laravel',
+  'skill_title' => 'A professional full-stack web application developer.',
 );

@@ -82,6 +82,19 @@
                                             placeholder="Enter Short Description">{{ readConfig('short_description') }}</textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label>Skill Title</label>
+                                        <input class="form-control" name="skill_title" type="text"
+                                            value="{{ readConfig('skill_title') }}" placeholder="Enter Skill Title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Skills</label>
+                                        <textarea class="form-control" rows="2" name="skills" cols="50" placeholder="Enter skills separate by comma">{{ readConfig('skills') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Resume Description</label>
+                                        <textarea class="form-control" rows="2" name="resume_description" cols="50" placeholder="Enter resume description">{{ readConfig('resume_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Meta Description</label>
                                         <textarea class="form-control" rows="2" name="meta_description" cols="50"
                                             placeholder="Enter Meta Description">{{ readConfig('meta_description') }}</textarea>
@@ -90,7 +103,6 @@
                                         <label>Meta Keywords</label>
                                         <textarea class="form-control" rows="2" name="meta_keywords" cols="50" placeholder="Enter Keywords">{{ readConfig('meta_keywords') }}</textarea>
                                     </div>
-
                                     <div class="form-group">
                                         <label>Website URL</label>
                                         <input class="form-control" name="site_url" type="url"

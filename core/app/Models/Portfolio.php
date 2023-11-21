@@ -10,6 +10,10 @@ class Portfolio extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function features()
+    {
+        return $this->hasMany(PortfolioFeature::class);
+    }
     public function technologies()
     {
         return $this->hasMany(PortfolioTechnology::class);
@@ -18,5 +22,10 @@ class Portfolio extends Model
     public function getTechnologiesId()
     {
         return $this->technologies->pluck('technology_id')->toArray();
+    }
+
+    public function images()
+    {
+        return $this->hasMany(PortfolioImage::class);
     }
 }

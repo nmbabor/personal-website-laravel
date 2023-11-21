@@ -108,9 +108,18 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::resource('technology','Backend\TechnologyController');
      // Portfolio
      Route::prefix('portfolio')->as('portfolio.')->group(function () {
-        // blog category
+        // Portfolio category
         Route::resource('categories','Backend\Portfolio\PortfolioCategoryController');
         Route::resource('projects','Backend\Portfolio\PortfolioController');
+        // Portfolio images
+        Route::post('image-store','Backend\Portfolio\PortfolioController@imageStore')->name('projects.image-store');
+        Route::delete('image-delete/{id}','Backend\Portfolio\PortfolioController@imageDelete')->name('projects.image-delete');
+        Route::get('image-update','Backend\Portfolio\PortfolioController@imageStatusUpdate')->name('projects.image-update');
+        // Portfolio features
+        Route::get('features/{id}','Backend\Portfolio\FeaturesController@index')->name('features.index');
+        Route::post('features','Backend\Portfolio\FeaturesController@store')->name('features.store');
+        Route::put('features/{id}','Backend\Portfolio\FeaturesController@update')->name('features.update');
+        Route::delete('features/{id}','Backend\Portfolio\FeaturesController@destroy')->name('features.destroy');
      });
     // blogs
     Route::prefix('blogs')->group(function () {
