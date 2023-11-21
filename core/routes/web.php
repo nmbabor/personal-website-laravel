@@ -105,6 +105,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         Route::get('delete/{id}', [UserManagementController::class, 'delete'])->name('backend.admin.user.delete');
     });
 
+    Route::resource('education','Backend\EducationController');
     Route::resource('technology','Backend\TechnologyController');
      // Portfolio
      Route::prefix('portfolio')->as('portfolio.')->group(function () {

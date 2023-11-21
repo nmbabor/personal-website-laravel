@@ -1,19 +1,37 @@
 @extends('backend.master')
 
-@section('title', 'Text Slider')
+@section('title', 'Education')
 @section('content')
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5 border-right">
                     <fieldset>
-                        <form action="{{ route('text-slider.store') }}" method="post" id="addNewData">
+                        <form action="{{ route('education.store') }}" method="post" id="addNewData">
                             @csrf
                             <div class="form-group">
-                                <label class="col-md-12"> Title <span class="text-danger">*</span> : </label>
+                                <label class="col-md-12"> Qualification <span class="text-danger">*</span> : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Title" name="title">
-                                    @error('title')
+                                    <input type="text" class="form-control" placeholder="Qualification" name="qualification">
+                                    @error('qualification')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"> Institute <span class="text-danger">*</span> : </label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Institute" name="institute">
+                                    @error('institute')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"> Passing Year <span class="text-danger">*</span> : </label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Ex: 2020" name="passing_year">
+                                    @error('passing_year')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
@@ -26,9 +44,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12"> Link : </label>
+                                <label class="col-md-12"> Result : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Link" name="link">
+                                    <input type="text" class="form-control" placeholder="Pass" name="result">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -48,8 +66,8 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Link</th>
+                                <th>Qualification</th>
+                                <th>Institute</th>
                                 <th width="5%">Status</th>
                                 <th class="text-center" width="20%">Actions</th>
                             </tr>
@@ -57,8 +75,8 @@
                         <tbody>
                             @foreach ($allData as $data)
                                 <tr>
-                                    <td>{{ $data->title }}</td>
-                                    <td><a href="{{ $data->link }}" target="_blank"> {{ $data->link }} </a></td>
+                                    <td>{{ $data->qualification }}</td>
+                                    <td>{{ $data->institute }}</td>
                                     <td>
                                         @if($data->status==1)
                                         <span class="badge badge-success" title="Active"> <i class="fa fa-check"></i> </span>
@@ -69,28 +87,28 @@
                                     <td>
                                         <div class="text-center">
                                             <!-- Button trigger modal -->
-                                            <button title="Edit Category" type="button" class="btn btn-info btn-xs"
-                                                data-toggle="modal" data-target="#editCategory-{{ $data->id }}">
+                                            <button title="Edit Data" type="button" class="btn btn-info btn-xs"
+                                                data-toggle="modal" data-target="#editData-{{ $data->id }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
                                             <a class="btn btn-danger btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete Data"
                                                                 href="javascript:void(0)"
-                                                                onclick='resourceDelete("{{ route('text-slider.destroy', $data->id) }}")'>
+                                                                onclick='resourceDelete("{{ route('education.destroy', $data->id) }}")'>
                                                                 <span class="delete-icon">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="editCategory-{{ $data->id }}" tabindex="-1"
+                                        <div class="modal fade" id="editData-{{ $data->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
-                                                {!! Form::open(['method' => 'put', 'route' => ['text-slider.update', $data->id]]) !!}
+                                                {!! Form::open(['method' => 'put', 'route' => ['education.update', $data->id]]) !!}
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title fs-5" id="exampleModalLabel">
                                                             <i class="fas fa-pencil-alt"></i>
-                                                            Edit Slider
+                                                            Edit Data
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -99,8 +117,16 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="form-group">
-                                                            <label class="control-label">Title:</label>
-                                                            {!! Form::text('title', $data->title, ['class' => 'form-control', 'placeholder' => 'Title','required']) !!}
+                                                            <label class="control-label">Qualification:</label>
+                                                            {!! Form::text('qualification', $data->qualification, ['class' => 'form-control', 'placeholder' => 'Qualification','required']) !!}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Institute:</label>
+                                                            {!! Form::text('institute', $data->institute, ['class' => 'form-control', 'placeholder' => 'Institute','required']) !!}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Passing year:</label>
+                                                            {!! Form::text('passing_year', $data->passing_year, ['class' => 'form-control', 'placeholder' => 'Passing year','required']) !!}
                                                         </div>
                                                         
                                                         <div class="form-group">
@@ -108,8 +134,8 @@
                                                             <textarea class="form-control" placeholder="Description" name="description">{{$data->description}}</textarea>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label">Link:</label>
-                                                            {!! Form::text('link', $data->link, ['class' => 'form-control', 'placeholder' => 'Link']) !!}
+                                                            <label class="control-label">Result:</label>
+                                                            {!! Form::text('result', $data->result, ['class' => 'form-control', 'placeholder' => 'Result']) !!}
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Status:</label>
