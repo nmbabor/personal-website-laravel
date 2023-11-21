@@ -66,6 +66,11 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="percentage"> Percentage (%) <span class="text-danger">*</span> : </label>
+                            <input type="text" class="form-control" placeholder="Ex: 80" name="percentage"
+                                value="{{ old('percentage') ?? 80 }}" required>
+                        </div>
+                        <div class="form-group">
                             <label for="main-features">
                                 Meta Tags :
                             </label>

@@ -63,4 +63,10 @@
   'skype_link' => NULL,
   'skills' => 'PHP, Laravel',
   'skill_title' => 'A professional full-stack web application developer.',
+  'resume_description' => 'I find myself inherently proactive in driving innovation and constructing novel solutions while tackling problems head-on. As a full-stack developer, I am deeply invested in crafting robust system architectures, optimizing performance, and enabling horizontal scaling. I firmly believe in my ability to embrace new challenges and surpass the expectations of my employers.',
+  'technology_description' => 'The ever-evolving demands of both clients and companies have driven me to continually expand my technological knowledge and expertise.',
+  'portfolio_description' => 'I have completed 40+ projects in the last 7 years. Here are some samples of my project\'s view, which I and my team have completed.',
+  'services_description' => 'I am committed to delivering my utmost best for every employer I work with. Striving to meet their highest expectations is always my top priority. I take pride in providing top-notch quality service and ensuring that client satisfaction remains at the forefront of my efforts.',
+  'testimonials_description' => 'I have received valuable feedback and reviews from the individuals I had the privilege to work with, as well as those I have worked for. Their insights and testimonials shed light on my professional capabilities and character',
+  'contact_description' => 'To reach out to me for any web-related services, please feel free to contact me via the provided address, email, or mobile number. I am readily available and look forward to assisting you with your specific needs.',
 );

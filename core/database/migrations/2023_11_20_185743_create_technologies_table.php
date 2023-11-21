@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('icon')->nullable();
             $table->text('meta_description')->nullable();
+            $table->integer('percentage')->default(80);
             $table->text('meta_tags')->nullable();
             $table->integer('created_by');
             $table->tinyInteger('status')->default(0);

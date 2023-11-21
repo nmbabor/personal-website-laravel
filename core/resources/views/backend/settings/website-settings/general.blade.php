@@ -24,6 +24,11 @@
                             <i class="fas fa-swatchbook"></i>
                             &nbsp;Logo &amp; Icon
                         </a>
+                        <a class="nav-link {{ @$_GET['active-tab'] == 'descriptions' ? 'active' : '' }}" id="vert-description-tab"
+                            data-toggle="pill" href="#description-tab" role="tab" aria-controls="description-tab" aria-selected="false">
+                            <i class="fas fa-folder"></i>
+                            &nbsp; Section Description
+                        </a>
                         <a class="nav-link {{ @$_GET['active-tab'] == 'contacts' ? 'active' : '' }}" id="vert-tabs-2"
                             data-toggle="pill" href="#tabs-2" role="tab" aria-controls="tabs-2" aria-selected="false">
                             <i class="fas fa-address-book"></i>
@@ -77,22 +82,9 @@
                                             value="{{ readConfig('sub_title') }}" placeholder="Enter Sub Title">
                                     </div>
                                     <div class="form-group">
-                                        <label>Short Description</label>
+                                        <label>About Description</label>
                                         <textarea class="form-control" rows="2" name="short_description" cols="50"
                                             placeholder="Enter Short Description">{{ readConfig('short_description') }}</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Skill Title</label>
-                                        <input class="form-control" name="skill_title" type="text"
-                                            value="{{ readConfig('skill_title') }}" placeholder="Enter Skill Title">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Skills</label>
-                                        <textarea class="form-control" rows="2" name="skills" cols="50" placeholder="Enter skills separate by comma">{{ readConfig('skills') }}</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Resume Description</label>
-                                        <textarea class="form-control" rows="2" name="resume_description" cols="50" placeholder="Enter resume description">{{ readConfig('resume_description') }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Meta Description</label>
@@ -107,6 +99,55 @@
                                         <label>Website URL</label>
                                         <input class="form-control" name="site_url" type="url"
                                             value="{{ readConfig('site_url') }}" placeholder="Enter Site URL">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <button type="submit" class="btn bg-gradient-primary">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp;Save Changes
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="tab-pane fade {{ @$_GET['active-tab'] == 'descriptions' ? 'active show' : '' }}"
+                            id="description-tab" role="tabpanel" aria-labelledby="vert-description-tab">
+
+                            <form action="{{ route('backend.admin.settings.website.description.update') }}" method="post">
+                                @csrf
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Skill Title</label>
+                                        <input class="form-control" name="skill_title" type="text"
+                                            value="{{ readConfig('skill_title') }}" placeholder="Enter Skill Title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Skills</label>
+                                        <textarea class="form-control" rows="2" name="skills" cols="50" placeholder="Enter skills separate by comma">{{ readConfig('skills') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Resume Description</label>
+                                        <textarea class="form-control" rows="2" name="resume_description" cols="50" placeholder="Enter resume description">{{ readConfig('resume_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Technology Description</label>
+                                        <textarea class="form-control" rows="2" name="technology_description" cols="50" placeholder="Enter technology description">{{ readConfig('technology_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Portfolio Description</label>
+                                        <textarea class="form-control" rows="2" name="portfolio_description" cols="50" placeholder="Enter description">{{ readConfig('portfolio_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Services Description</label>
+                                        <textarea class="form-control" rows="2" name="services_description" cols="50" placeholder="Enter description">{{ readConfig('services_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Testimonials Description</label>
+                                        <textarea class="form-control" rows="2" name="testimonials_description" cols="50" placeholder="Enter description">{{ readConfig('testimonials_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Contact Description</label>
+                                        <textarea class="form-control" rows="2" name="contact_description" cols="50" placeholder="Enter description">{{ readConfig('contact_description') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-2">

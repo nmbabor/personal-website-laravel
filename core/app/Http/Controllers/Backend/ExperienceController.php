@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Education;
+use App\Models\Experience;
 use Illuminate\Http\Request;
 
-class EducationController extends Controller
+class ExperienceController extends Controller
 {
     public function index()
     {
-        $allData = Education::get();
-        return view('backend.resume.education', compact('allData'));
+        $allData = Experience::get();
+        return view('backend.resume.experience', compact('allData'));
     }
 
 
@@ -21,12 +21,13 @@ class EducationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'qualification' => 'required',
-            'institute' => 'required',
+            'designation' => 'required',
+            'company' => 'required',
+            'time_period' => 'required',
         ]);
         try{
             $input = $request->except('_token');
-            Education::create($input);
+            Experience::create($input);
             return back()->with('success', 'Data created successfully');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
@@ -37,12 +38,13 @@ class EducationController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'qualification' => 'required',
-            'institute' => 'required',
+            'designation' => 'required',
+            'company' => 'required',
+            'time_period' => 'required',
         ]);
 
         try {
-            $data = Education::findOrFail($id);
+            $data = Experience::findOrFail($id);
             $input = $request->except(['_token', '_method']);
             
             $data->update($input);
@@ -58,7 +60,7 @@ class EducationController extends Controller
     public function destroy($id)
     {
         try {
-            $data = Education::findOrFail($id);
+            $data = Experience::findOrFail($id);
             $data->delete();
             return back()->with('success', 'Data deleted successfully');
         } catch (\Exception $e) {

@@ -106,6 +106,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     });
 
     Route::resource('education','Backend\EducationController');
+    Route::resource('experiences','Backend\ExperienceController');
     Route::resource('technology','Backend\TechnologyController');
      // Portfolio
      Route::prefix('portfolio')->as('portfolio.')->group(function () {
@@ -142,6 +143,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
             Route::controller(WebsiteSettingController::class)->prefix('general')->group(function () {
                 Route::get('/', 'websiteGeneral')->name('backend.admin.settings.website.general');
                 Route::post('update-info', 'websiteInfoUpdate')->name('backend.admin.settings.website.info.update');
+                Route::post('update-description', 'websiteDescriptionUpdate')->name('backend.admin.settings.website.description.update');
                 Route::post('update-contacts', 'websiteContactsUpdate')->name('backend.admin.settings.website.contacts.update');
                 Route::post('update-social-links', 'websiteSocialLinkUpdate')->name('backend.admin.settings.website.social.link.update');
                 Route::post('update-style-settings', 'websiteStyleSettingsUpdate')->name('backend.admin.settings.website.style.settings.update');

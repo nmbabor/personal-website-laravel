@@ -165,19 +165,3 @@
         </div>
     </div>
 @endsection
-@push('script')
- <script>
-    function getSlugFromString(str) {
-    return str
-        .toLowerCase()
-        .replace(/[^a-z0-9-]/g, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "");
-    }
-
-    $("#addNewData [name='title']").keyup(function () {
-    $("#addNewData [name='slug']").val(getSlugFromString(this.value));
-    });
- </script>
-@endpush
-

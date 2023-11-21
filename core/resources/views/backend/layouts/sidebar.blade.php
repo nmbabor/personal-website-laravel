@@ -128,6 +128,31 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fab fa-blogger-b nav-icon"></i>
+                    <p>
+                        Resume
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('education.index') }}"
+                            class="nav-link {{ menuActive('education.*') ? 'active' : '' }}">
+                            <i class="fas fa-chevron-circle-right nav-icon"></i>
+                            <p>Education</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('experiences.index') }}"
+                            class="nav-link {{ menuActive('experiences.*') ? 'active' : '' }}">
+                            <i class="fas fa-chevron-circle-right nav-icon"></i>
+                            <p>Experience</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('technology.index') }}"
                     class="nav-link {{ menuActive('technology.*') ? 'active' : '' }}">
                     <i class="fas fa-file nav-icon"></i>

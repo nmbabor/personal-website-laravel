@@ -28,6 +28,16 @@ class WebsiteSettingController extends Controller
         return to_route('backend.admin.settings.website.general', ['active-tab' => 'website-info'])
             ->with('success', 'Updated successfully');
     }
+    public function websiteDescriptionUpdate(Request $request)
+    {
+
+        foreach ($request->except('_token') as $key => $value) {
+            writeConfig($key, $value);
+        }
+
+        return to_route('backend.admin.settings.website.general', ['active-tab' => 'descriptions'])
+            ->with('success', 'Updated successfully');
+    }
 
     public function websiteContactsUpdate(Request $request)
     {

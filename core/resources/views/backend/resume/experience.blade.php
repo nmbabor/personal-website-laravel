@@ -1,37 +1,37 @@
 @extends('backend.master')
 
-@section('title', 'Education')
+@section('title', 'Experiences')
 @section('content')
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5 border-right">
                     <fieldset>
-                        <form action="{{ route('education.store') }}" method="post" id="addNewData">
+                        <form action="{{ route('experiences.store') }}" method="post" id="addNewData">
                             @csrf
                             <div class="form-group">
-                                <label class="col-md-12"> Qualification <span class="text-danger">*</span> : </label>
+                                <label class="col-md-12"> Designation <span class="text-danger">*</span> : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Qualification" name="qualification">
-                                    @error('qualification')
+                                    <input type="text" class="form-control" placeholder="Designation" name="designation">
+                                    @error('designation')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12"> Institute <span class="text-danger">*</span> : </label>
+                                <label class="col-md-12"> Company <span class="text-danger">*</span> : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Institute" name="institute">
-                                    @error('institute')
+                                    <input type="text" class="form-control" placeholder="Company" name="company">
+                                    @error('company')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12"> Passing Year <span class="text-danger">*</span> : </label>
+                                <label class="col-md-12"> Time Period <span class="text-danger">*</span> : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Ex: 2020" name="passing_year">
-                                    @error('passing_year')
+                                    <input type="text" class="form-control" placeholder="Ex: 2020" name="time_period">
+                                    @error('time_period')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
@@ -41,12 +41,6 @@
                                 <label class="col-md-12">Description : </label>
                                 <div class="col-md-12">
                                     <textarea class="form-control" placeholder="Description" name="description"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12"> Result : </label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Pass" name="result">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -66,8 +60,8 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Qualification</th>
-                                <th>Institute</th>
+                                <th>Designation</th>
+                                <th>Company</th>
                                 <th width="5%">Status</th>
                                 <th class="text-center" width="20%">Actions</th>
                             </tr>
@@ -75,8 +69,8 @@
                         <tbody>
                             @foreach ($allData as $data)
                                 <tr>
-                                    <td>{{ $data->qualification }}</td>
-                                    <td>{{ $data->institute }}</td>
+                                    <td>{{ $data->designation }}</td>
+                                    <td>{{ $data->company }}</td>
                                     <td>
                                         @if($data->status==1)
                                         <span class="badge badge-success" title="Active"> <i class="fa fa-check"></i> </span>
@@ -93,7 +87,7 @@
                                             </button>
                                             <a class="btn btn-danger btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete Data"
                                                                 href="javascript:void(0)"
-                                                                onclick='resourceDelete("{{ route('education.destroy', $data->id) }}")'>
+                                                                onclick='resourceDelete("{{ route('experiences.destroy', $data->id) }}")'>
                                                                 <span class="delete-icon">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
@@ -103,7 +97,7 @@
                                         <div class="modal fade" id="editData-{{ $data->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
-                                                {!! Form::open(['method' => 'put', 'route' => ['education.update', $data->id]]) !!}
+                                                {!! Form::open(['method' => 'put', 'route' => ['experiences.update', $data->id]]) !!}
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title fs-5" id="exampleModalLabel">
@@ -117,25 +111,21 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="form-group">
-                                                            <label class="control-label">Qualification:</label>
-                                                            {!! Form::text('qualification', $data->qualification, ['class' => 'form-control', 'placeholder' => 'Qualification','required']) !!}
+                                                            <label class="control-label">Designation:</label>
+                                                            {!! Form::text('designation', $data->designation, ['class' => 'form-control', 'placeholder' => 'Designation','required']) !!}
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label">Institute:</label>
-                                                            {!! Form::text('institute', $data->institute, ['class' => 'form-control', 'placeholder' => 'Institute','required']) !!}
+                                                            <label class="control-label">Company:</label>
+                                                            {!! Form::text('company', $data->company, ['class' => 'form-control', 'placeholder' => 'Company','required']) !!}
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label">Passing year:</label>
-                                                            {!! Form::text('passing_year', $data->passing_year, ['class' => 'form-control', 'placeholder' => 'Passing year','required']) !!}
+                                                            <label class="control-label">Time Period:</label>
+                                                            {!! Form::text('time_period', $data->time_period, ['class' => 'form-control', 'placeholder' => 'Time Period','required']) !!}
                                                         </div>
                                                         
                                                         <div class="form-group">
                                                             <label class="control-label"> Description : </label>
                                                             <textarea class="form-control" placeholder="Description" name="description">{{$data->description}}</textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label">Result:</label>
-                                                            {!! Form::text('result', $data->result, ['class' => 'form-control', 'placeholder' => 'Result']) !!}
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Status:</label>
@@ -165,19 +155,3 @@
         </div>
     </div>
 @endsection
-@push('script')
- <script>
-    function getSlugFromString(str) {
-    return str
-        .toLowerCase()
-        .replace(/[^a-z0-9-]/g, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "");
-    }
-
-    $("#addNewData [name='title']").keyup(function () {
-    $("#addNewData [name='slug']").val(getSlugFromString(this.value));
-    });
- </script>
-@endpush
-
