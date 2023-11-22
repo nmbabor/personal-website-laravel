@@ -5,7 +5,7 @@
 
 @section('hero')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background-image:url({{imageRecover(readConfig('hero_photo'))}})">
         <div class="hero-container" data-aos="fade-in">
             <h1>NM Babor</h1>
             <p>I'm <span class="typed" data-typed-items="{{ $textSlider }}"></span></p>

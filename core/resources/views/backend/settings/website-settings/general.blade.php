@@ -22,7 +22,7 @@
                         <a class="nav-link {{ @$_GET['active-tab'] == 'style-settings' ? 'active' : '' }}" id="vert-tabs-4"
                             data-toggle="pill" href="#tabs-4" role="tab" aria-controls="tabs-4" aria-selected="false">
                             <i class="fas fa-swatchbook"></i>
-                            &nbsp;Logo &amp; Icon
+                            &nbsp; Media
                         </a>
                         <a class="nav-link {{ @$_GET['active-tab'] == 'descriptions' ? 'active' : '' }}" id="vert-description-tab"
                             data-toggle="pill" href="#description-tab" role="tab" aria-controls="description-tab" aria-selected="false">
@@ -323,55 +323,66 @@
                                 @csrf
                                 <div class="col-md-12 d-flex justify-content-between border-bottom">
                                     <h5>
-                                        <i class="fas fa-swatchbook"></i>
-                                        &nbsp;&nbsp;Logo &amp; Icon
+                                        <i class="fas fa-file-image"></i>
+                                        &nbsp;&nbsp; Media
                                     </h5>
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-md-6 my-2">
-                                        <label for="thumbnail"> Site Logo : </label>
-                                        <div class="col-md-6">
-                                            <label class="post_upload" for="file" style="height: 100px">
-                                                @if (readconfig('site_logo') != null)
-                                                    <img id="image_load"
-                                                        src='{{ imageRecover(readconfig('site_logo')) }}'
-                                                        class="img-responsive">
-                                                @else
-                                                    <img id="image_load" src="{{ asset('assets/images/photo.png') }}">
-                                                @endif
-                                            </label>
-                                            {{ Form::file('site_logo', ['id' => 'file', 'style' => 'display:none', 'onchange' => "photoLoad(this,'image_load')"]) }}
+                                    <div class="col-md-4 my-2">
+                                        <label for="thumbnail"> Logo &amp; Favicon : </label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="post_upload" for="file" style="height: 100px">
+                                                    @if (readconfig('site_logo') != null)
+                                                        <img id="image_load"
+                                                            src='{{ imageRecover(readconfig('site_logo')) }}'
+                                                            class="img-responsive">
+                                                    @else
+                                                        <img id="image_load" src="{{ asset('assets/images/photo.png') }}">
+                                                    @endif
+                                                </label>
+                                                {{ Form::file('site_logo', ['id' => 'file', 'style' => 'display:none', 'onchange' => "photoLoad(this,'image_load')"]) }}
+                                                <p> Size: 260x60px </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="post_upload" for="file2"
+                                                    style="height: 100px; width: 100px">
+                                                    @if (readconfig('favicon_icon') != null)
+                                                        <img id="fav_image_load"
+                                                            src='{{ imageRecover(readconfig('favicon_icon')) }}'
+                                                            class="img-responsive">
+                                                    @else
+                                                        <img id="fav_image_load"
+                                                            src="{{ asset('assets/images/photo.png') }}">
+                                                    @endif
+                                                </label>
+                                                {{ Form::file('favicon_icon', ['id' => 'file2', 'style' => 'display:none', 'onchange' => "photoLoad(this,'fav_image_load')"]) }}
+                                                <p> Size: 50x50px </p>
+                                            </div>
                                         </div>
-                                        <small>
-                                            <i class="far fa-question-circle"></i>
-                                            ( 260x60 px ) - Extensions: .png, .jpg, .jpeg, .gif, .svg
-                                        </small>
                                     </div>
-                                    <div class="col-md-6 my-2">
-                                        <label for="thumbnail"> Favicon : </label>
-                                        <div class="col-md-6">
-                                            <label class="post_upload" for="file2"
+                                    <div class="col-md-3 my-2">
+                                        <label for="thumbnail"> Profile : </label>
+                                        <div class="col-md-12">
+                                            <label class="post_upload" for="profile"
                                                 style="height: 100px; width: 100px">
-                                                @if (readconfig('favicon_icon') != null)
-                                                    <img id="fav_image_load"
-                                                        src='{{ imageRecover(readconfig('favicon_icon')) }}'
+                                                @if (readconfig('profile') != null)
+                                                    <img id="profile_image_load"
+                                                        src='{{ imageRecover(readconfig('profile')) }}'
                                                         class="img-responsive">
                                                 @else
-                                                    <img id="fav_image_load"
+                                                    <img id="profile_image_load"
                                                         src="{{ asset('assets/images/photo.png') }}">
                                                 @endif
                                             </label>
-                                            {{ Form::file('favicon_icon', ['id' => 'file2', 'style' => 'display:none', 'onchange' => "photoLoad(this,'fav_image_load')"]) }}
+                                            {{ Form::file('profile', ['id' => 'profile', 'style' => 'display:none', 'onchange' => "photoLoad(this,'profile_image_load')"]) }}
+                                            <p> Size: 100x100px </p>
                                         </div>
-                                        <small>
-                                            <i class="far fa-question-circle"></i>
-                                            ( 50x50 px ) - Extensions: .png, .jpg, .jpeg, .gif, .svg
-                                        </small>
                                     </div>
-                                    <div class="col-md-6 my-2">
+                                    <div class="col-md-4 my-2">
                                         <label for="thumbnail"> Skill section Photo : </label>
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="post_upload" for="skill_photo">
                                                 @if (readconfig('skill_photo') != null)
                                                     <img id="skill_image_load"
@@ -386,6 +397,25 @@
                                         <small>
                                             <i class="far fa-question-circle"></i>
                                             ( 300x300 px ) - Extensions: .png, .jpg, .jpeg, .gif, .svg
+                                        </small>
+                                    </div>
+                                    <div class="col-md-4 my-2">
+                                        <label for="thumbnail"> Hero Cover Photo : </label>
+                                        <div class="col-md-12">
+                                            <label class="post_upload" for="hero_photo" style="height: 120px">
+                                                @if (readconfig('hero_photo') != null)
+                                                    <img id="hero_image_load"
+                                                        src='{{ imageRecover(readconfig('hero_photo')) }}'
+                                                        class="img-responsive">
+                                                @else
+                                                    <img id="hero_image_load" src="{{ asset('assets/images/photo.png') }}">
+                                                @endif
+                                            </label>
+                                            {{ Form::file('hero_photo', ['id' => 'hero_photo', 'style' => 'display:none', 'onchange' => "photoLoad(this,'hero_image_load')"]) }}
+                                        </div>
+                                        <small>
+                                            <i class="far fa-question-circle"></i>
+                                            ( 1600x320 px ) - Extensions: .png, .jpg, .jpeg, .gif, .svg
                                         </small>
                                     </div>
                                 </div>

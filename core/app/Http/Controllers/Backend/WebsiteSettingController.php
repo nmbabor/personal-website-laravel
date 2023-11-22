@@ -108,6 +108,16 @@ class WebsiteSettingController extends Controller
             $skill_photo = uploadImage($request->file("skill_photo"), "/assets/images/logo");
             writeConfig('skill_photo', $skill_photo);
         }
+        if ($request->hasFile("hero_photo")) {
+            secureUnlink(readConfig('hero_photo'));
+            $photo = uploadImage($request->file("hero_photo"), "/assets/images/logo");
+            writeConfig('hero_photo', $photo);
+        }
+        if ($request->hasFile("profile")) {
+            secureUnlink(readConfig('profile'));
+            $photo = uploadImage($request->file("profile"), "/assets/images/logo");
+            writeConfig('profile', $photo);
+        }
 
         return to_route('backend.admin.settings.website.general', ['active-tab' => 'style-settings'])
             ->with('success', 'Updated successfully');

@@ -69,6 +69,8 @@
   'services_description' => 'I am committed to delivering my utmost best for every employer I work with. Striving to meet their highest expectations is always my top priority. I take pride in providing top-notch quality service and ensuring that client satisfaction remains at the forefront of my efforts.',
   'testimonials_description' => 'I have received valuable feedback and reviews from the individuals I had the privilege to work with, as well as those I have worked for. Their insights and testimonials shed light on my professional capabilities and character',
   'contact_description' => 'To reach out to me for any web-related services, please feel free to contact me via the provided address, email, or mobile number. I am readily available and look forward to assisting you with your specific needs.',
-  'skill_photo' => 'assets/images/logo/1700583831_655cd997bb071_DSC03829.JPG',
+  'skill_photo' => 'assets/images/logo/1700643616_655dc320eb7b6_1700541898_655c35ca9f88d_profile-img.jpg',
   'blog_description' => 'Stay up-to-date with the latest trends, news, and tips. Discover a world of knowledge, inspiration, and valuable information right here in featured blog.',
+  'hero_photo' => 'assets/images/logo/1700645794_pxfuel-1.jpg',
+  'profile' => 'assets/images/logo/1700643739_655dc39bdcf9d_babor.jpg',
 );

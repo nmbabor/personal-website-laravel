@@ -49,7 +49,7 @@
         <div class="d-flex flex-column">
 
             <div class="profile">
-                <img src="{{ asset('assets/frontend//img/babors.jpg') }}" alt=""
+                <img src="{{imageRecover(readConfig('profile'))}}" alt=""
                     class="img-fluid rounded-circle">
                 <h1 class="text-light"><a href="index.html">Author</a></h1>
                 <div class="social-links mt-3 text-center">
