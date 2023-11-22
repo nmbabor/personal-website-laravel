@@ -39,6 +39,23 @@ class HomeController extends Controller
         
         return view('frontend.index',compact('blogs','textSlider','skills','educations','experiences','technology','portfolioCategory','portfolio','services','testimonials'));
     }
+
+    public function portfolio($slug){
+        $data = Portfolio::where('slug',$slug)->firstOrFail();
+        return view('frontend.portfolio.details',compact('data'));
+    }
+    
+    public function technology($slug){
+        $data = Technology::where('slug',$slug)->firstOrFail();
+        $technologies = Technology::whereStatus(1)->where('id','!=',$data->id)->latest()->get();
+        return view('frontend.technology.details',compact('data','technologies'));
+    }
+    public function service($slug){
+        $data = Services::where('slug',$slug)->firstOrFail();
+        $services = Services::whereStatus(1)->where('id','!=',$data->id)->latest()->get();
+        return view('frontend.services.details',compact('data','services'));
+    }
+
     public function blogs(){
         $blogs = Blog::whereStatus(1)->latest()->paginate(12);
         return view('frontend.blog.index',compact('blogs'));
@@ -52,17 +69,15 @@ class HomeController extends Controller
     public function singleBlog($slug){
         $data = Blog::whereStatus(1)->where('slug',$slug)->firstOrFail();
         $categories = BlogCategory::whereStatus(1)->get();
-        return view('frontend.blog.single',compact('data','categories'));
+        $recentBlogs = Blog::whereStatus(1)->latest()->take(5)->where('id','!=',$data->id)->get();
+        return view('frontend.blog.single',compact('data','categories','recentBlogs'));
     }
     public function singlePage($slug){
         $data = Page::whereStatus(1)->where('slug',$slug)->firstOrFail();
         return view('frontend.singlePage',compact('data'));
     }
     
-    public function portfolio($slug){
-        $data = Portfolio::where('slug',$slug)->firstOrFail();
-        return view('frontend.portfolio.details',compact('data'));
-    }
+    
 
     
 }

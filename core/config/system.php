@@ -70,4 +70,5 @@
   'testimonials_description' => 'I have received valuable feedback and reviews from the individuals I had the privilege to work with, as well as those I have worked for. Their insights and testimonials shed light on my professional capabilities and character',
   'contact_description' => 'To reach out to me for any web-related services, please feel free to contact me via the provided address, email, or mobile number. I am readily available and look forward to assisting you with your specific needs.',
   'skill_photo' => 'assets/images/logo/1700583831_655cd997bb071_DSC03829.JPG',
+  'blog_description' => 'Stay up-to-date with the latest trends, news, and tips. Discover a world of knowledge, inspiration, and valuable information right here in featured blog.',
 );

@@ -142,6 +142,10 @@
                                         <textarea class="form-control" rows="2" name="services_description" cols="50" placeholder="Enter description">{{ readConfig('services_description') }}</textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label>Blog Description</label>
+                                        <textarea class="form-control" rows="2" name="blog_description" cols="50" placeholder="Enter description">{{ readConfig('blog_description') }}</textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Testimonials Description</label>
                                         <textarea class="form-control" rows="2" name="testimonials_description" cols="50" placeholder="Enter description">{{ readConfig('testimonials_description') }}</textarea>
                                     </div>

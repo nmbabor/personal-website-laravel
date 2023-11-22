@@ -20,9 +20,7 @@
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
         <div class="container">
-
             <div class="row gy-4">
-
                 <div class="col-lg-8">
                     <h2 class="portfolio-title mb-4 fs-4">  {{$data->title}} </h2>
                     <div class="portfolio-details-slider swiper">

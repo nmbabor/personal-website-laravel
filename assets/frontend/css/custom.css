@@ -74,5 +74,29 @@
     background-color: #149ddd;
     border-color: #149ddd;
 }
-.blogs .card a{color:#000; transition: 0.3s;}
+.blogs .card a{color:#272829; transition: 0.3s;}
 .blogs .card a:hover{color:#149ddd;}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    background: #149ddd;
+    border-radius: 50%;
+    transition: 0.5s;
+    border: 1px solid #149ddd;
+    margin: 0 auto;
+}
+.service-icon:hover{
+    background: #fff;
+}
+.service-icon:hover i {
+    color: #149ddd;
+}
+.service-icon i {
+    color: #fff;
+    font-size: 24px;
+    line-height: 0;
+}

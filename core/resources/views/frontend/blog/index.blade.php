@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @if(isset($category))
-@section('title', $category->title)
+@section('title', $category->title . ' - Blogs')
     @if($category->description != '')
         @section('meta_description', $category->description)
     @endif
@@ -13,47 +13,55 @@
 @endif
 
 @section('content')
-<section class="team_section layout_padding">
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Latest Blogs</h2>
+            <ol>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('/blogs') }}">Blogs</a></li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section id="portfolio-details" class="portfolio-details">
     <div class="container">
         <div class="heading_container heading_center">
-            <h2>
-                Our Blogs
-                @if(isset($category))
-                <br>
-                <small> <i class="fa fa-folder"></i> {{$category->title}} </small>
-                @endif
-            </h2>
-            <p>
-                Stay up-to-date with the latest trends, news, and tips from our team of experts.
-                Discover a world of knowledge, inspiration, and valuable information right here in our featured blog.
+            <h3 class="fw-bold">
+                Blogs
+            </h3>
+            <p class="border-bottom pb-3">
+                {!! readConfig('blog_description') !!}
             </p>
+            @if(isset($category))
+                <small class="fs-6"> <i class="bi bi-folder"></i> {{$category->title}} </small>
+            @endif
         </div>
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
             @foreach($blogs as $blog)
-            <div class="col-md-4 col-sm-6 mx-auto featured-blog mt-3">
-                <div class="blog-box">
-                    <a href="{{route('frontend.blog.show',$blog->slug)}}">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="{{ imageRecover($blog->thumbnail) }}" alt="{{$blog->title}}">
-                            </div>
-                        </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="{{url('blog',$blog->slug)}}">
+                    <img src="{{imageRecover($blog->thumbnail)}}" class="card-img-top" alt="{{$blog->title}}">
                     </a>
-                    <div class="text-box p-3">
-                        <h6>
-                            <a href="{{route('frontend.blog.show',$blog->slug)}}">
-                                {{$blog->title}}
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><a href="{{url('blog',$blog->slug)}}"> {{$blog->title}} </a> </h5>
+                        <p class="card-text">
+                            <a href="{{route('frontend.blogs.category',$blog->category->slug)}}" class="me-3">
+                                <i class="bi bi-folder"></i> {{$blog->category->title}}
                             </a>
-                        </h6>
-                        <div class="row">
-                            <div class="col-6"> <i class="fa fa-calendar"></i>  {{date('jS M, Y',strtotime($blog->created_at))}} </div>
-                            <div class="col-6"> <a href="{{route('frontend.blogs.category',$blog->category->slug)}}"> <i class="fa fa-folder"></i> {{$blog->category->title??""}} </a> </div>
-                        </div>
-                        <p class="text-center mb-0 mt-3"> <a class="btn btn-primary" href="{{route('frontend.blog.show',$blog->slug)}}"> Read more </a> </p>
+                            <i class="bi bi-person-lines-fill"></i> {{$blog->author->name??''}}
+
+                        </p>
                     </div>
                 </div>
             </div>
             @endforeach
+        </div>
+        <div class="row">
             <div class="col-md-12 mt-3 border-top pt-2">
                 {{$blogs->links()}}
             </div>

@@ -255,7 +255,7 @@
                                 <img src="{{ imageRecover($service->icon) }}" class="img-fluid" style="width: 70%">
                             @endif
                         </div>
-                        <h4 class="title"><a href=""> {{ $service->title }} </a></h4>
+                        <h4 class="title"><a href="{{url('service',$service->slug)}}"> {{ $service->title }} </a></h4>
 
                         <p class="description"> {{ $service->meta_description }} </p>
                     </div>
@@ -280,13 +280,13 @@
                 @foreach($blogs as $blog)
                 <div class="col">
                     <div class="card h-100">
-                        <a href="#">
+                        <a href="{{url('blog',$blog->slug)}}">
                         <img src="{{imageRecover($blog->thumbnail)}}" class="card-img-top" alt="{{$blog->title}}">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold"><a href="#"> {{$blog->title}} </a> </h5>
+                            <h5 class="card-title fw-bold"><a href="{{url('blog',$blog->slug)}}"> {{$blog->title}} </a> </h5>
                             <p class="card-text">
-                                <a href="#" class="me-3">
+                                <a href="{{route('frontend.blogs.category',$blog->category->slug)}}" class="me-3">
                                     <i class="bi bi-folder"></i> {{$blog->category->title}}
                                 </a>
                                 <i class="bi bi-person-lines-fill"></i> {{$blog->author->name??''}}
@@ -298,7 +298,7 @@
                 @endforeach
             </div>
             <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                <a href="#" class="btn btn-outline-brand"> <i class="bi bi-grid"></i> Explore All Articles</a>
+                <a href="{{url('blogs')}}" class="btn btn-outline-brand"> <i class="bi bi-grid"></i> Explore All Blogs</a>
               </div>
 
         </div>
