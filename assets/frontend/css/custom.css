@@ -11,6 +11,9 @@
 }
 .portfolio-keyfeatures .card{
     height: 100%;
+    box-shadow: 1px 1px 5px #ddd;
+    border: none;
+    background: #f5f5f5;
 }
 .portfolio-video{
     position: relative;
