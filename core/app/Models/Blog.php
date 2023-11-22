@@ -15,6 +15,10 @@ class Blog extends Model
     {
         return $this->belongsTo(BlogCategory::class, 'blog_category_id')->withDefault();
     }
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id','id');
+    }
 
     public function getThumbAttribute()
     {

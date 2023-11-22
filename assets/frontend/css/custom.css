@@ -65,3 +65,14 @@
 .bg-brand{
     background-color: #149ddd;
 }
+.btn-outline-brand {
+    color: #149ddd;
+    border-color: #149ddd;
+}
+.btn-outline-brand:hover {
+    color: #fff;
+    background-color: #149ddd;
+    border-color: #149ddd;
+}
+.blogs .card a{color:#000; transition: 0.3s;}
+.blogs .card a:hover{color:#149ddd;}

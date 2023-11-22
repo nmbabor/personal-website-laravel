@@ -105,6 +105,8 @@
                             <span>Portfolio</span></a></li>
                     <li><a href="{{url('')}}#services" class="nav-link scrollto"><i class="bx bx-server"></i>
                             <span>Services</span></a></li>
+                    <li><a href="{{url('')}}#blogs" class="nav-link scrollto"><i class="bi bi-stack"></i>
+                            <span>Blogs</span></a></li>
                     <li><a href="{{url('')}}#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i>
                             <span>Contact</span></a></li>
                 </ul>

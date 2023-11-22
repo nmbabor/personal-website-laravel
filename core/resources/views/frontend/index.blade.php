@@ -165,27 +165,29 @@
 
             <div class="section-title">
                 <h2>Usage Technology</h2>
-                <p> {{readConfig('technology_description')}} </p>
+                <p> {{ readConfig('technology_description') }} </p>
             </div>
 
             <div class="row portfolio-technology">
-                @foreach($technology as $tech)
-                <div class="col-md-4 mb-4">
-                    <div class="card mb-3">
-                        <a class="row g-0" href="{{url('technology/'.$tech->slug)}}">
-                            <div class="col-md-3 verticle-align-center p-1">
-                                <img src="{{ imageRecover($tech->icon) }}" class="img-fluid"
-                                    alt="{{$tech->title}}">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold mb-2">{{$tech->title}} <span class="badge @if($tech->percentage>79) bg-success @else bg-brand @endif">{{$tech->percentage}}%</span></h5>
-                                    <p class="card-text mt-3"> {!! $tech->meta_description !!} </p>
+                @foreach ($technology as $tech)
+                    <div class="col-md-4 mb-4">
+                        <div class="card mb-3">
+                            <a class="row g-0" href="{{ url('technology/' . $tech->slug) }}">
+                                <div class="col-md-3 verticle-align-center p-1">
+                                    <img src="{{ imageRecover($tech->icon) }}" class="img-fluid"
+                                        alt="{{ $tech->title }}">
                                 </div>
-                            </div>
-                        </a>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold mb-2">{{ $tech->title }} <span
+                                                class="badge @if ($tech->percentage > 79) bg-success @else bg-brand @endif">{{ $tech->percentage }}%</span>
+                                        </h5>
+                                        <p class="card-text mt-3"> {!! $tech->meta_description !!} </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 @endforeach
 
             </div>
@@ -206,27 +208,27 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        @foreach($portfolioCategory as $proCat)
-                        <li data-filter=".filter-{{$proCat->slug}}">{{$proCat->title}}</li>
+                        @foreach ($portfolioCategory as $proCat)
+                            <li data-filter=".filter-{{ $proCat->slug }}">{{ $proCat->title }}</li>
                         @endforeach
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-                @foreach($portfolio as $port)
-                <div class="col-lg-4 col-md-6 portfolio-item filter-{{$port->category->slug ?? ''}}">
-                    <div class="portfolio-wrap">
-                        <img src="{{ imageRecover($port->thumbnail) }}" class="img-fluid"
-                            alt="">
-                        <div class="portfolio-links">
-                            <a href="{{ imageRecover($port->thumbnail) }}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{$port->project_name}}"><i
-                                    class="bx bx-zoom-in"></i></a>
-                            <a href="{{ url('portfolio',$port->slug) }}" title="More Details"><i class="bx bx-link"></i></a>
+                @foreach ($portfolio as $port)
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $port->category->slug ?? '' }}">
+                        <div class="portfolio-wrap">
+                            <img src="{{ imageRecover($port->thumbnail) }}" class="img-fluid" alt="">
+                            <div class="portfolio-links">
+                                <a href="{{ imageRecover($port->thumbnail) }}" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox" title="{{ $port->project_name }}"><i
+                                        class="bx bx-zoom-in"></i></a>
+                                <a href="{{ url('portfolio', $port->slug) }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
 
@@ -244,50 +246,89 @@
             </div>
 
             <div class="row">
-                @foreach($services as $service )
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                    <div class="icon">
-                        @if($service->icon_class!='')
-                        <i class="{{$service->icon_class}}"></i>
-                        @else
-                        <img src="{{imageRecover($service->icon)}}" class="img-fluid" style="width: 70%">
-                        @endif
-                    </div>
-                    <h4 class="title"><a href=""> {{$service->title}} </a></h4>
+                @foreach ($services as $service)
+                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                        <div class="icon">
+                            @if ($service->icon_class != '')
+                                <i class="{{ $service->icon_class }}"></i>
+                            @else
+                                <img src="{{ imageRecover($service->icon) }}" class="img-fluid" style="width: 70%">
+                            @endif
+                        </div>
+                        <h4 class="title"><a href=""> {{ $service->title }} </a></h4>
 
-                    <p class="description"> {{$service->meta_description}} </p>
-                </div>
+                        <p class="description"> {{ $service->meta_description }} </p>
+                    </div>
                 @endforeach
             </div>
 
         </div>
     </section><!-- End Services Section -->
 
+    <!-- ======= Blog Section ======= -->
+    <section id="blogs" class="blogs section-bg">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>From Blogs</h2>
+                <p> {!! readConfig('blog_description') !!} </p>
+
+            </div>
+
+            
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($blogs as $blog)
+                <div class="col">
+                    <div class="card h-100">
+                        <a href="#">
+                        <img src="{{imageRecover($blog->thumbnail)}}" class="card-img-top" alt="{{$blog->title}}">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold"><a href="#"> {{$blog->title}} </a> </h5>
+                            <p class="card-text">
+                                <a href="#" class="me-3">
+                                    <i class="bi bi-folder"></i> {{$blog->category->title}}
+                                </a>
+                                <i class="bi bi-person-lines-fill"></i> {{$blog->author->name??''}}
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                <a href="#" class="btn btn-outline-brand"> <i class="bi bi-grid"></i> Explore All Articles</a>
+              </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
+    <section id="testimonials" class="testimonials">
         <div class="container">
 
             <div class="section-title">
                 <h2>Testimonials</h2>
-                <p> {{readConfig('testimonials_description')}} </p>
+                <p> {{ readConfig('testimonials_description') }} </p>
             </div>
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    @foreach($testimonials as $testimonial)
-                    <div class="swiper-slide">
-                        <div class="testimonial-item" data-aos="fade-up">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                {!! $testimonial->description !!}
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{{ imageRecover($testimonial->icon) }}" class="testimonial-img"
-                                alt="">
-                            <h3> {{$testimonial->name}} </h3>
-                            <h4>{{$testimonial->designation}} at <b>{{$testimonial->company}}</b> </h4>
-                        </div>
-                    </div><!-- End testimonial item -->
+                    @foreach ($testimonials as $testimonial)
+                        <div class="swiper-slide">
+                            <div class="testimonial-item" data-aos="fade-up">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    {!! $testimonial->description !!}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="{{ imageRecover($testimonial->icon) }}" class="testimonial-img"
+                                    alt="">
+                                <h3> {{ $testimonial->name }} </h3>
+                                <h4>{{ $testimonial->designation }} at <b>{{ $testimonial->company }}</b> </h4>
+                            </div>
+                        </div><!-- End testimonial item -->
                     @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
@@ -297,7 +338,7 @@
     </section><!-- End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section-bg">
         <div class="container">
 
             <div class="section-title">
