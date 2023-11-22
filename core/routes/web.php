@@ -39,7 +39,7 @@ Route::get('/service/{slug}','Frontend\HomeController@service');
 Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('login');
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::match(['get', 'post'], 'sign-up', [AuthController::class, 'signup'])->name('signup');
+//Route::match(['get', 'post'], 'sign-up', [AuthController::class, 'signup'])->name('signup');
 Route::match(['get', 'post'], 'forget-password', [AuthController::class, 'forgetPassword'])->name('forget.password');
 Route::match(['get', 'post'], 'new-password', [AuthController::class, 'newPassword'])->name('new.password');
 Route::match(['get', 'post'], 'password-reset', [AuthController::class, 'passwordReset'])->name('password.reset');
@@ -47,7 +47,7 @@ Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend.otp
 
 
 // google auth
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+//Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.handle.callback');
 
 

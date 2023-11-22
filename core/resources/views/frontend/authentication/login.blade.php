@@ -105,9 +105,9 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-12 col-xl-12 mt-2">
+                <div class="col-sm-12 col-lg-12 col-xl-12 mt-2" style="display: none">
                     <div class="form-group">
-                        <a href="{{ route('auth.google') }}" class="google-btn w-100">
+                        <a href="{{-- {{ route('auth.google') }} --}}" class="google-btn w-100">
                             <span class="icon">
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -142,8 +142,8 @@
                 </div>
             </div>
         </div>
-        <div class="authentication-form-footer">
+        {{-- <div class="authentication-form-footer">
             <p>Don’t have an account? <a href="{{ route('signup') }}">Sign up </a></p>
-        </div>
+        </div> --}}
     </form>
 @endsection
