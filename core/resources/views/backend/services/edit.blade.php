@@ -49,9 +49,14 @@
 
                 </div>
                 <div class="col-md-3">
-                    
+                    <div class="form-group">
+                        <label for="icon_class">Icon Class : </label>
+                        <input type="text" class="form-control" placeholder="Ex: bi bi-terminal" name="icon_class"
+                            value="{{ $data->icon_class}}">
+                    </div>
                     <div class="form-group {{ $errors->has('icon') ? 'has-error' : '' }}">
-                        <label for="icon"> Icon <span class="text-danger">*</span> : </label>
+                        <p>OR</p>
+                        <label for="icon"> Icon : </label>
                         <div class="col-md-12">
                             <label class="post_upload" for="file" style="height: 100px;width: 100px;">
                             @if($data->icon!=null)
@@ -68,11 +73,7 @@
                                 @endif
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="icon_class">Icon Class (If Need) : </label>
-                        <input type="text" class="form-control" placeholder="Ex: bi bi-terminal" name="icon_class"
-                            value="{{ $data->icon_class}}">
-                    </div>
+                    
                     <div class="form-group">
                         <label for="main-features">
                             Meta Tags :

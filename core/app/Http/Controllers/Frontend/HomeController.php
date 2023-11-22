@@ -10,7 +10,9 @@ use App\Models\Experience;
 use App\Models\Page;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
+use App\Models\Services;
 use App\Models\Technology;
+use App\Models\Testimonial;
 use App\Models\TextSlider;
 
 
@@ -32,8 +34,10 @@ class HomeController extends Controller
 
        $portfolioCategory = PortfolioCategory::whereStatus(1)->get();
        $portfolio = Portfolio::whereStatus(1)->latest()->get();
+       $services = Services::whereStatus(1)->get();
+       $testimonials = Testimonial::whereStatus(1)->get();
         
-        return view('frontend.index',compact('blogs','textSlider','skills','educations','experiences','technology','portfolioCategory','portfolio'));
+        return view('frontend.index',compact('blogs','textSlider','skills','educations','experiences','technology','portfolioCategory','portfolio','services','testimonials'));
     }
     public function blogs(){
         $blogs = Blog::whereStatus(1)->latest()->paginate(12);
@@ -56,7 +60,8 @@ class HomeController extends Controller
     }
     
     public function portfolio($slug){
-        return view('frontend.portfolio.details');
+        $data = Testimonial::where('slug',$slug)->firstOrFail();
+        return view('frontend.portfolio.details',compact('data'));
     }
 
     

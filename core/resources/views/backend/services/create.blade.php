@@ -50,7 +50,12 @@
 
                     </div>
                     <div class="col-md-3">
-                        
+                        <div class="form-group">
+                            <label for="icon_class">Icon Class : </label>
+                            <input type="text" class="form-control" placeholder="Ex: bi bi-terminal" name="icon_class"
+                                value="{{ old('icon_class')}}">
+                        </div>
+                        <p> OR </p>
                         <div class="form-group {{ $errors->has('icon') ? 'has-error' : '' }}">
                             <label for="icon"> Icon : </label>
                             <div class="col-md-12">
@@ -66,11 +71,7 @@
                                     @endif
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="icon_class">Icon Class (If Need) : </label>
-                            <input type="text" class="form-control" placeholder="Ex: bi bi-terminal" name="icon_class"
-                                value="{{ old('icon_class')}}">
-                        </div>
+                        
                         <div class="form-group">
                             <label for="main-features">
                                 Meta Tags :

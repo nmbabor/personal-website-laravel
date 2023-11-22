@@ -239,48 +239,25 @@
 
             <div class="section-title">
                 <h2>Services</h2>
-                <p> I am committed to delivering my utmost best for every employer I work with. Striving to meet their
-                    highest expectations is always my top priority. I take pride in providing top-notch quality service and
-                    ensuring that client satisfaction remains at the forefront of my efforts. </p>
+                <p> {!! readConfig('services_description') !!} </p>
 
             </div>
 
             <div class="row">
+                @foreach($services as $service )
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                    <div class="icon"><i class="bi bi-file-earmark-richtext"></i></div>
-                    <h4 class="title"><a href="">Web Design & Development</a></h4>
+                    <div class="icon">
+                        @if($service->icon_class!='')
+                        <i class="{{$service->icon_class}}"></i>
+                        @else
+                        <img src="{{imageRecover($service->icon)}}" class="img-fluid" style="width: 70%">
+                        @endif
+                    </div>
+                    <h4 class="title"><a href=""> {{$service->title}} </a></h4>
 
-                    <p class="description">E-Commerce Website, Organization Website, Personal Website etc.</p>
+                    <p class="description"> {{$service->meta_description}} </p>
                 </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bi bi-file-code"></i></div>
-                    <h4 class="title"><a href="">Web Application</a></h4>
-                    <p class="description">Inventory Management, HR and Accounting Software, Education Management etc.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon"><i class="bi bi-pencil-square"></i></div>
-                    <h4 class="title"><a href="">Customization</a></h4>
-                    <p class="description">I provide customized solutions or existing project customization as per needs.
-                    </p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon"><i class="bi bi-stack"></i></div>
-                    <h4 class="title"><a href="">Database Design</a></h4>
-                    <p class="description">I capable to design the database of websites and web applications in a perfect
-                        way.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                    <div class="icon"><i class="bi bi-card-checklist"></i></div>
-                    <h4 class="title"><a href="">Project Analysis & Architecture</a></h4>
-                    <p class="description">I analyze and create architecture according to the plan for the project before
-                        start coding. </p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                    <div class="icon"><i class="bi bi-sliders"></i></div>
-                    <h4 class="title"><a href="">Server Configuration</a></h4>
-                    <p class="description">Configuring the server, running projects on the server, analysis with server
-                        security. </p>
-                </div>
+                @endforeach
             </div>
 
         </div>
@@ -292,62 +269,26 @@
 
             <div class="section-title">
                 <h2>Testimonials</h2>
-                <p> I have received valuable feedback and reviews from the individuals I had the privilege to work with, as
-                    well as those I have worked for. Their insights and testimonials shed light on my professional
-                    capabilities and character. </p>
+                <p> {{readConfig('testimonials_description')}} </p>
             </div>
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-
+                    @foreach($testimonials as $testimonial)
                     <div class="swiper-slide">
                         <div class="testimonial-item" data-aos="fade-up">
                             <p>
                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                He is a very skilled web developer. The finishing of his work is very good. In a few words,
-                                he can understand the needs in a project. The boy is a bit lazy, but he can do very quality
-                                project in a short time.
+                                {!! $testimonial->description !!}
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
-                            <img src="{{ asset('assets/frontend//img/testimonials/asiq.png') }}" class="testimonial-img"
+                            <img src="{{ imageRecover($testimonial->icon) }}" class="testimonial-img"
                                 alt="">
-                            <h3>Asiq Rahman</h3>
-                            <h4>Accounts Manager at <b>JHM International DMCC</b> </h4>
+                            <h3> {{$testimonial->name}} </h3>
+                            <h4>{{$testimonial->designation}} at <b>{{$testimonial->company}}</b> </h4>
                         </div>
                     </div><!-- End testimonial item -->
-
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                I worked with him in my office for 1 year. Worked very well as a team leader in my office.
-                                Can easily understand client's needs. Can do things easily by doing project analysis.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{{ asset('assets/frontend//img/testimonials/sahen.png') }}" class="testimonial-img"
-                                alt="">
-                            <h3>Shahidul Islam Sahen</h3>
-                            <h4>CEO at <b>Smart Software Ltd.</b> </h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                I have worked with him on many projects. A very good developer and can give very good
-                                support. He is also good as a trainer. Many boys are working in the programming sector
-                                holding his hand.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{{ asset('assets/frontend//img/testimonials/mohi.png') }}" class="testimonial-img"
-                                alt="">
-                            <h3>Mohi</h3>
-                            <h4>Digital Marketing Expert at <b>Fiverr</b> </h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
+                    @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
