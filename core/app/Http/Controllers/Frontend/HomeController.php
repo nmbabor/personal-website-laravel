@@ -60,7 +60,7 @@ class HomeController extends Controller
     }
     
     public function portfolio($slug){
-        $data = Testimonial::where('slug',$slug)->firstOrFail();
+        $data = Portfolio::where('slug',$slug)->firstOrFail();
         return view('frontend.portfolio.details',compact('data'));
     }
 

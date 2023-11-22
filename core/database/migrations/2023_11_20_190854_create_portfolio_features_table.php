@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(Portfolio::class)->constrained();
             $table->string('icon')->nullable();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
