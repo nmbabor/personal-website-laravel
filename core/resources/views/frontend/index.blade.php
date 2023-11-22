@@ -223,7 +223,7 @@
                             <a href="{{ imageRecover($port->thumbnail) }}"
                                 data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{$port->project_name}}"><i
                                     class="bx bx-zoom-in"></i></a>
-                            <a href="{{ url('portfolio/',$port->slug) }}" title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="{{ url('portfolio',$port->slug) }}" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>

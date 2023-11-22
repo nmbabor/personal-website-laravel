@@ -78,7 +78,7 @@
                             <input type="text" class="form-control" name="client_name" value="{{ old('client_name') }}" placeholder="nTech Bangla" />
                         </div>
                         <div class="form-group {{ $errors->has('thumbnail') ? 'has-error' : '' }}">
-                            <label for="thumbnail"> Thumbnail <span class="text-danger">*</span> : </label>
+                            <label for="thumbnail"> Thumbnail <small>(1000 X 750px)</small> <span class="text-danger">*</span> : </label>
                             <div class="col-md-12 p-0">
                                 <label class="post_upload" for="file">
                                     <!--  -->

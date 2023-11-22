@@ -69,7 +69,7 @@
                         <div class="form-group">
                             <label for="icon_class">Icon Class (If Need) : </label>
                             <input type="text" class="form-control" placeholder="Ex: bi bi-terminal" name="icon_class"
-                                value="{{ old('icon_class')}}" required>
+                                value="{{ old('icon_class')}}">
                         </div>
                         <div class="form-group">
                             <label for="main-features">
