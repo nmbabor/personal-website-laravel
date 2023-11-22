@@ -25,7 +25,7 @@
 
                 <div class="col-lg-8">
                     <div class="text-center">
-                        <img src="{{ imageRecover($data->icon) }}" alt="{{ $data->title }}">
+                        <img src="{{ imageRecover($data->icon) }}" alt="{{ $data->title }}" style="max-height: 180px;">
                         <h2 class="mb-2 fs-4 fw-bold"> {{ $data->title }} </h2>
                         <p> {{$data->meta_description}} </p>
                     </div>

@@ -1,13 +1,13 @@
 @extends('frontend.master')
 
-@section('title', 'Home')
+@section('title', readConfig('site_name'))
 
 
 @section('hero')
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background-image:url({{imageRecover(readConfig('hero_photo'))}})">
         <div class="hero-container" data-aos="fade-in">
-            <h1>NM Babor</h1>
+            <h1>{{ readConfig('site_name') }}</h1>
             <p>I'm <span class="typed" data-typed-items="{{ $textSlider }}"></span></p>
         </div>
     </section><!-- End Hero -->
@@ -275,7 +275,7 @@
 
             </div>
 
-            
+
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($blogs as $blog)
                 <div class="col">

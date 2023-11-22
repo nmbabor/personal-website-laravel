@@ -30,7 +30,7 @@
                             <i class="{{ $data->icon_class }}"></i>
                         </div>
                         @else
-                            <img src="{{ imageRecover($data->icon) }}" alt="{{ $data->title }}">
+                            <img src="{{ imageRecover($data->icon) }}" alt="{{ $data->title }}" style="max-height: 180px;">
                         @endif
                         <h2 class="mb-2 mt-2 fs-4 fw-bold"> {{ $data->title }} </h2>
                         <p> {{$data->meta_description}} </p>
