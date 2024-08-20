@@ -179,8 +179,8 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="card-body">
-                                        <h5 class="card-title fw-bold mb-2">{{ $tech->title }} <span
-                                                class="badge @if ($tech->percentage > 79) bg-success @else bg-brand @endif">{{ $tech->percentage }}%</span>
+                                        <h5 class="card-title fw-bold mb-2">{{ $tech->title }} {{--<span
+                                                class="badge @if ($tech->percentage > 79) bg-success @else bg-brand @endif">{{ $tech->percentage }}%</span>--}}
                                         </h5>
                                         <p class="card-text mt-3"> {!! $tech->meta_description !!} </p>
                                     </div>
